@@ -1,8 +1,9 @@
 file_path = ("90-文档-Data/山西文旅/云冈石窟-en.pdf")
+import shutil
 from langchain_unstructured import UnstructuredLoader
 loader = UnstructuredLoader(
     file_path=file_path,  # PDF文件路径
-    strategy="hi_res",    # 使用高分辨率策略进行文档处理
+    strategy="hi_res" if shutil.which("pdfinfo") else "fast",    # 有 Poppler 时使用高分辨率策略
     # partition_via_api=True,  # 通过API进行文档分块
     # coordinates=True,     # 提取文本坐标信息
 )

@@ -1,0 +1,32 @@
+1 
+PyPDF 类：规则解析，直接提取文本，速度快，无需模型
+pytesseract：OCR 识别，需轻量预训练模型，可处理扫描版 PDF
+多模态大模型：统一理解多内容，懂语义结构，依赖大模型
+
+
+2 一个好用的pdf转markdown工具
+https://github.com/datalab-to/marker
+
+3 一个好用的pdf转OCR工具，多语言
+https://github.com/datalab-to/surya
+
+4 一个好用的复杂文档（比如pdf或者word）工具
+https://github.com/opendatalab/mineru
+
+5 PRD to Markdown工具
+https://www.llamaindex.ai/llamaparse
+
+6 
+
+05-LangChain-Unstrucured-PDF-简单展示.py ---> Unstrctured Loader，LangChain的接口
+06-Unstrctured-使用partition函数解析PDF-v1.py ---> Unstrctured工具本身的Partition功能
+06-Unstrctured-使用partition函数解析PDF-v2.py 
+07-Unstructed-PDF-比较各种模式.ipynb ---> 尝试用不同模式处理PDF文件
+08-分析PDF布局.ipynb ---> 分析PDF的板式布局
+08-渲染PDF页面版式.py
+09-Parent-Child-Unstructured-LangChain.py ---> 父子关系中的链接
+09-Parent-Child-Unstructured-ParitionPDF.py
+
+7 下面2个参数的理解（如果不想用API则注释掉）
+* partition_via_api=True, 通过API进行文档分块
+* coordinates=True, 提取文本坐标信息

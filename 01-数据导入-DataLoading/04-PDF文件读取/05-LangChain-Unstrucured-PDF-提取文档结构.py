@@ -1,8 +1,9 @@
 file_path = ("90-文档-Data/山西文旅/云冈石窟-en.pdf")
+import shutil
 from langchain_unstructured import UnstructuredLoader
 loader = UnstructuredLoader(
     file_path=file_path,
-    strategy="hi_res",
+    strategy="hi_res" if shutil.which("pdfinfo") else "fast",
     # partition_via_api=True,
     # coordinates=True,
 )

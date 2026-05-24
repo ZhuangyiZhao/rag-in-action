@@ -1,6 +1,11 @@
 # 需要LLAMA_CLOUD_API_KEY
+import os
 from dotenv import load_dotenv
 load_dotenv()   
+
+if not os.getenv("LLAMA_CLOUD_API_KEY"):
+    print("未配置 LLAMA_CLOUD_API_KEY，跳过 LlamaParse 在线解析示例。")
+    raise SystemExit(0)
 
 # LlamaParse PDF reader for PDF Parsing
 from llama_parse import LlamaParse
@@ -14,4 +19,3 @@ node_parser = MarkdownElementNodeParser()
 nodes = node_parser.get_nodes_from_documents(documents)
 
 print(nodes)
-

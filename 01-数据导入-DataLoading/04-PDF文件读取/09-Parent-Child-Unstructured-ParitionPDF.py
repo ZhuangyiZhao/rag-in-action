@@ -1,3 +1,4 @@
+import shutil
 from unstructured.documents.elements import Title, NarrativeText, Text
 from unstructured.partition.pdf import partition_pdf
 
@@ -6,9 +7,13 @@ file_path = '90-文档-Data/山西文旅/云冈石窟-en.pdf'
 # 使用 unstructured 直接读取 PDF
 elements = partition_pdf(
     filename=file_path,
-    strategy="hi_res",
+    strategy="hi_res" if shutil.which("pdfinfo") else "fast",
     # include_metadata=True,  # 如果需要位置信息
 )
+
+if not elements:
+    print("未解析出元素；安装 Poppler 后可使用 hi_res 策略获得更完整的 PDF 结构。")
+    raise SystemExit(0)
 
 print(elements[0].to_dict())
 
